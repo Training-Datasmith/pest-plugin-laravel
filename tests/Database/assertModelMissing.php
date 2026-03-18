@@ -1,10 +1,13 @@
 <?php
 
-use PHPUnit\Framework\ExpectationFailedException;
-use Tests\Models\User;
-use Tests\TestCase;
+declare(strict_types=1);
 
 use function Pest\Laravel\assertModelExists;
+
+use PHPUnit\Framework\ExpectationFailedException;
+use Tests\Models\User;
+
+use Tests\TestCase;
 
 test('pass', function () {
     if (! method_exists(TestCase::class, 'assertModelExists')) {

@@ -7,13 +7,17 @@ namespace Pest\Laravel\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Console\PromptsForMissingInput;
 use Illuminate\Support\Facades\File;
-use Pest\Support\Str;
-use Pest\TestSuite;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 
 use function Laravel\Prompts\select;
+
+use Pest\Support\Str;
+
 use function Pest\testDirectory;
+
+use Pest\TestSuite;
+
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * @internal

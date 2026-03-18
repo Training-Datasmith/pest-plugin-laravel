@@ -23,7 +23,7 @@ final class Plugin implements HandlesArguments
         if ($this->hasArgument('--with-exception-handling', $arguments)) {
             $arguments = $this->popArgument('--with-exception-handling', $arguments);
 
-            $interactsWithExceptionHandling = (fn(TestCase $testCase): bool => function_exists('trait_uses_recursive') && trait_uses_recursive($testCase, InteractsWithExceptionHandling::class));
+            $interactsWithExceptionHandling = (fn (TestCase $testCase): bool => function_exists('trait_uses_recursive') && trait_uses_recursive($testCase, InteractsWithExceptionHandling::class));
 
             uses()->beforeEach(function () use ($interactsWithExceptionHandling): void {
                 /** @var TestCase $this */
@@ -37,7 +37,7 @@ final class Plugin implements HandlesArguments
         if ($this->hasArgument('--without-exception-handling', $arguments)) {
             $arguments = $this->popArgument('--without-exception-handling', $arguments);
 
-            $interactsWithExceptionHandling = (fn(TestCase $testCase): bool => function_exists('trait_uses_recursive') && trait_uses_recursive($testCase, InteractsWithExceptionHandling::class));
+            $interactsWithExceptionHandling = (fn (TestCase $testCase): bool => function_exists('trait_uses_recursive') && trait_uses_recursive($testCase, InteractsWithExceptionHandling::class));
 
             uses()->beforeEach(function () use ($interactsWithExceptionHandling): void {
                 /** @var TestCase $this */
@@ -51,7 +51,7 @@ final class Plugin implements HandlesArguments
         if ($this->hasArgument('--with-deprecation-handling', $arguments)) {
             $arguments = $this->popArgument('--with-deprecation-handling', $arguments);
 
-            $interactsWithDeprecationHandling = (fn(TestCase $testCase): bool => function_exists('trait_uses_recursive') && trait_uses_recursive($testCase, InteractsWithDeprecationHandling::class));
+            $interactsWithDeprecationHandling = (fn (TestCase $testCase): bool => function_exists('trait_uses_recursive') && trait_uses_recursive($testCase, InteractsWithDeprecationHandling::class));
 
             uses()->beforeEach(function () use ($interactsWithDeprecationHandling): void {
                 /** @var TestCase $this */
@@ -65,7 +65,7 @@ final class Plugin implements HandlesArguments
         if ($this->hasArgument('--without-deprecation-handling', $arguments)) {
             $arguments = $this->popArgument('--without-deprecation-handling', $arguments);
 
-            $interactsWithDeprecationHandling = (fn(TestCase $testCase): bool => function_exists('trait_uses_recursive') && trait_uses_recursive($testCase, InteractsWithDeprecationHandling::class));
+            $interactsWithDeprecationHandling = (fn (TestCase $testCase): bool => function_exists('trait_uses_recursive') && trait_uses_recursive($testCase, InteractsWithDeprecationHandling::class));
 
             uses()->beforeEach(function () use ($interactsWithDeprecationHandling): void {
                 /** @var TestCase $this */
