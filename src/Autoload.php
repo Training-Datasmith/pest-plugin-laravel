@@ -1,6 +1,6 @@
 <?php
 
-(static function () {
+(static function (): void {
     $files = [
         'Authentication.php',
         'Console.php',

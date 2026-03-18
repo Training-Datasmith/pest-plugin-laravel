@@ -9,7 +9,6 @@ use Pest\Expectation;
 /*
  * Asserts that the value is an instance of \Illuminate\Support\Collection
  */
-expect()->extend('toBeCollection', function (): Expectation {
+expect()->extend('toBeCollection', 
     // @phpstan-ignore-next-line
-    return $this->toBeInstanceOf(\Illuminate\Support\Collection::class);
-});
+    fn(): Expectation => $this->toBeInstanceOf(\Illuminate\Support\Collection::class));
