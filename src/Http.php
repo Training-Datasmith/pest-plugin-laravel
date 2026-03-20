@@ -1,174 +1,156 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Pest\Laravel;
 
-use Illuminate\Foundation\Testing\TestCase;
-use Illuminate\Testing\TestResponse;
-
+use Illuminate\Foundation\Testing\Test_Case;
+use Illuminate\Testing\Test_Response;
 /**
  * Define additional headers to be sent with the request.
  *
  * @return TestCase
  */
-function withHeaders(array $headers)
+function with_headers(array $headers)
 {
-    return test()->withHeaders(...func_get_args());
+    return test()->with_headers(...func_get_args());
 }
-
 /**
  * Add a header to be sent with the request.
  *
  * @return TestCase
  */
-function withHeader(string $name, string $value)
+function with_header(string $name, string $value)
 {
-    return test()->withHeader(...func_get_args());
+    return test()->with_header(...func_get_args());
 }
-
 /**
  *  Add an authorization token for the request.
  *
  * @return TestCase
  */
-function withToken(string $token, string $type = 'Bearer')
+function with_token(string $token, string $type = 'Bearer')
 {
-    return test()->withToken(...func_get_args());
+    return test()->with_token(...func_get_args());
 }
-
 /**
  * Add a basic authentication header to the request with the given credentials.
  *
  * @return TestCase
  */
-function withBasicAuth(string $username, string $password)
+function with_basic_auth(string $username, string $password)
 {
-    return test()->withBasicAuth(...func_get_args());
+    return test()->with_basic_auth(...func_get_args());
 }
-
 /**
  *  Remove the authorization token from the request.
  *
  * @return TestCase
  */
-function withoutToken()
+function without_token()
 {
-    return test()->withoutToken();
+    return test()->without_token();
 }
-
 /**
  * Flush all the configured headers.
  *
  * @return TestCase
  */
-function flushHeaders()
+function flush_headers()
 {
-    return test()->flushHeaders(...func_get_args());
+    return test()->flush_headers(...func_get_args());
 }
-
 /**
  * Define a set of server variables to be sent with the requests.
  *
  * @return TestCase
  */
-function withServerVariables(array $server)
+function with_server_variables(array $server)
 {
-    return test()->withServerVariables(...func_get_args());
+    return test()->with_server_variables(...func_get_args());
 }
-
 /**
  * Disable middleware for the test.
  *
  * @param  string|array|null  $middleware
  * @return TestCase
  */
-function withoutMiddleware($middleware = null)
+function without_middleware($middleware = null)
 {
-    return test()->withoutMiddleware(...func_get_args());
+    return test()->without_middleware(...func_get_args());
 }
-
 /**
  * Enable the given middleware for the test.
  *
  * @param  string|array|null  $middleware
  * @return TestCase
  */
-function withMiddleware($middleware = null)
+function with_middleware($middleware = null)
 {
-    return test()->withMiddleware(...func_get_args());
+    return test()->with_middleware(...func_get_args());
 }
-
 /**
  * Define additional cookies to be sent with the request.
  *
  * @return TestCase
  */
-function withCookies(array $cookies)
+function with_cookies(array $cookies)
 {
-    return test()->withCookies(...func_get_args());
+    return test()->with_cookies(...func_get_args());
 }
-
 /**
  * Add a cookie to be sent with the request.
  *
  * @return TestCase
  */
-function withCookie(string $name, string $value)
+function with_cookie(string $name, string $value)
 {
-    return test()->withCookie(...func_get_args());
+    return test()->with_cookie(...func_get_args());
 }
-
 /**
  * Define additional cookies will not be encrypted before sending with the request.
  *
  * @return TestCase
  */
-function withUnencryptedCookies(array $cookies)
+function with_unencrypted_cookies(array $cookies)
 {
-    return test()->withUnencryptedCookies(...func_get_args());
+    return test()->with_unencrypted_cookies(...func_get_args());
 }
-
 /**
  * Add a cookie will not be encrypted before sending with the request.
  *
  * @return TestCase
  */
-function withUnencryptedCookie(string $name, string $value)
+function with_unencrypted_cookie(string $name, string $value)
 {
-    return test()->withUnencryptedCookie(...func_get_args());
+    return test()->with_unencrypted_cookie(...func_get_args());
 }
-
 /**
  * Automatically follow any redirects returned from the response.
  *
  * @return TestCase
  */
-function followingRedirects()
+function following_redirects()
 {
-    return test()->followingRedirects(...func_get_args());
+    return test()->following_redirects(...func_get_args());
 }
-
 /**
  * Include cookies and authorization headers for JSON requests.
  *
  * @return TestCase
  */
-function withCredentials()
+function with_credentials()
 {
-    return test()->withCredentials(...func_get_args());
+    return test()->with_credentials(...func_get_args());
 }
-
 /**
  * Disable automatic encryption of cookie values.
  *
  * @return TestCase
  */
-function disableCookieEncryption()
+function disable_cookie_encryption()
 {
-    return test()->disableCookieEncryption(...func_get_args());
+    return test()->disable_cookie_encryption(...func_get_args());
 }
-
 /**
  * Set the referer header and previous URL session value in order to simulate a previous request.
  *
@@ -178,7 +160,6 @@ function from(string $url)
 {
     return test()->from(...func_get_args());
 }
-
 /**
  * Visit the given URI with a GET request.
  *
@@ -188,17 +169,15 @@ function get(string $uri, array $headers = [])
 {
     return test()->get(...func_get_args());
 }
-
 /**
  * Visit the given URI with a GET request, expecting a JSON response.
  *
  * @return TestResponse
  */
-function getJson(string $uri, array $headers = [])
+function get_json(string $uri, array $headers = [])
 {
-    return test()->getJson(...func_get_args());
+    return test()->get_json(...func_get_args());
 }
-
 /**
  * Visit the given URI with a POST request.
  *
@@ -208,17 +187,15 @@ function post(string $uri, array $data = [], array $headers = [])
 {
     return test()->post(...func_get_args());
 }
-
 /**
  * Visit the given URI with a POST request, expecting a JSON response.
  *
  * @return TestResponse
  */
-function postJson(string $uri, array $data = [], array $headers = [])
+function post_json(string $uri, array $data = [], array $headers = [])
 {
-    return test()->postJson(...func_get_args());
+    return test()->post_json(...func_get_args());
 }
-
 /**
  * Visit the given URI with a PUT request.
  *
@@ -228,17 +205,15 @@ function put(string $uri, array $data = [], array $headers = [])
 {
     return test()->put(...func_get_args());
 }
-
 /**
  * Visit the given URI with a PUT request, expecting a JSON response.
  *
  * @return TestResponse
  */
-function putJson(string $uri, array $data = [], array $headers = [])
+function put_json(string $uri, array $data = [], array $headers = [])
 {
-    return test()->putJson(...func_get_args());
+    return test()->put_json(...func_get_args());
 }
-
 /**
  * Visit the given URI with a PATCH request.
  *
@@ -248,17 +223,15 @@ function patch(string $uri, array $data = [], array $headers = [])
 {
     return test()->patch(...func_get_args());
 }
-
 /**
  * Visit the given URI with a PATCH request, expecting a JSON response.
  *
  * @return TestResponse
  */
-function patchJson(string $uri, array $data = [], array $headers = [])
+function patch_json(string $uri, array $data = [], array $headers = [])
 {
-    return test()->patchJson(...func_get_args());
+    return test()->patch_json(...func_get_args());
 }
-
 /**
  * Visit the given URI with a DELETE request.
  *
@@ -268,17 +241,15 @@ function delete(string $uri, array $data = [], array $headers = [])
 {
     return test()->delete(...func_get_args());
 }
-
 /**
  * Visit the given URI with a DELETE request, expecting a JSON response.
  *
  * @return TestResponse
  */
-function deleteJson(string $uri, array $data = [], array $headers = [])
+function delete_json(string $uri, array $data = [], array $headers = [])
 {
-    return test()->deleteJson(...func_get_args());
+    return test()->delete_json(...func_get_args());
 }
-
 /**
  * Visit the given URI with a OPTIONS request.
  *
@@ -288,17 +259,15 @@ function options(string $uri, array $data = [], array $headers = [])
 {
     return test()->options(...func_get_args());
 }
-
 /**
  * Visit the given URI with a OPTIONS request, expecting a JSON response.
  *
  * @return TestResponse
  */
-function optionsJson(string $uri, array $data = [], array $headers = [])
+function options_json(string $uri, array $data = [], array $headers = [])
 {
-    return test()->optionsJson(...func_get_args());
+    return test()->options_json(...func_get_args());
 }
-
 /**
  * Visit the given URI with a HEAD request.
  *
@@ -308,7 +277,6 @@ function head(string $uri, array $headers = [])
 {
     return test()->head(...func_get_args());
 }
-
 /**
  * Call the given URI with a JSON request.
  *
@@ -318,7 +286,6 @@ function json(string $method, string $uri, array $data = [], array $headers = []
 {
     return test()->json(...func_get_args());
 }
-
 /**
  * Call the given URI and return the Response.
  *

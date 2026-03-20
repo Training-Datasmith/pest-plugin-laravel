@@ -1,81 +1,66 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Pest\Laravel;
 
-use Illuminate\Foundation\Testing\Concerns\InteractsWithDeprecationHandling;
-use Illuminate\Foundation\Testing\Concerns\InteractsWithExceptionHandling;
-use Pest\Contracts\Plugins\HandlesArguments;
-use Pest\Plugins\Concerns\HandleArguments;
-use Pest\TestSuite;
-use PHPUnit\Framework\TestCase;
-
+use Illuminate\Foundation\Testing\Concerns\Interacts_With_Deprecation_Handling;
+use Illuminate\Foundation\Testing\Concerns\Interacts_With_Exception_Handling;
+use Pest\Contracts\Plugins\Handles_Arguments;
+use Pest\Plugins\Concerns\Handle_Arguments;
+use Pest\Test_Suite;
+use Php_Unit\Framework\Test_Case;
 /**
  * @internal
  */
-final class Plugin implements HandlesArguments
+final class Plugin implements Handles_Arguments
 {
-    use HandleArguments;
-
-    public function handleArguments(array $arguments): array
+    use Handle_Arguments;
+    public function handle_arguments(array $arguments): array
     {
-        if ($this->hasArgument('--with-exception-handling', $arguments)) {
-            $arguments = $this->popArgument('--with-exception-handling', $arguments);
-
-            $interactsWithExceptionHandling = (fn (TestCase $testCase): bool => function_exists('trait_uses_recursive') && trait_uses_recursive($testCase, InteractsWithExceptionHandling::class));
-
-            uses()->beforeEach(function () use ($interactsWithExceptionHandling): void {
+        if ($this->has_argument('--with-exception-handling', $arguments)) {
+            $arguments = $this->pop_argument('--with-exception-handling', $arguments);
+            $interacts_with_exception_handling = fn(Test_Case $test_case): bool => function_exists('trait_uses_recursive') && trait_uses_recursive($test_case, Interacts_With_Exception_Handling::class);
+            uses()->before_each(function () use ($interacts_with_exception_handling): void {
                 /** @var TestCase $this */
-                if ($interactsWithExceptionHandling($this)) {
+                if ($interacts_with_exception_handling($this)) {
                     /** @var TestCase&InteractsWithExceptionHandling $this */
-                    $this->withExceptionHandling();
+                    $this->with_exception_handling();
                 }
-            })->in(TestSuite::getInstance()->rootPath);
+            })->in(Test_Suite::get_instance()->root_path);
         }
-
-        if ($this->hasArgument('--without-exception-handling', $arguments)) {
-            $arguments = $this->popArgument('--without-exception-handling', $arguments);
-
-            $interactsWithExceptionHandling = (fn (TestCase $testCase): bool => function_exists('trait_uses_recursive') && trait_uses_recursive($testCase, InteractsWithExceptionHandling::class));
-
-            uses()->beforeEach(function () use ($interactsWithExceptionHandling): void {
+        if ($this->has_argument('--without-exception-handling', $arguments)) {
+            $arguments = $this->pop_argument('--without-exception-handling', $arguments);
+            $interacts_with_exception_handling = fn(Test_Case $test_case): bool => function_exists('trait_uses_recursive') && trait_uses_recursive($test_case, Interacts_With_Exception_Handling::class);
+            uses()->before_each(function () use ($interacts_with_exception_handling): void {
                 /** @var TestCase $this */
-                if ($interactsWithExceptionHandling($this)) {
+                if ($interacts_with_exception_handling($this)) {
                     /** @var TestCase&InteractsWithExceptionHandling $this */
-                    $this->withoutExceptionHandling();
+                    $this->without_exception_handling();
                 }
-            })->in(TestSuite::getInstance()->rootPath);
+            })->in(Test_Suite::get_instance()->root_path);
         }
-
-        if ($this->hasArgument('--with-deprecation-handling', $arguments)) {
-            $arguments = $this->popArgument('--with-deprecation-handling', $arguments);
-
-            $interactsWithDeprecationHandling = (fn (TestCase $testCase): bool => function_exists('trait_uses_recursive') && trait_uses_recursive($testCase, InteractsWithDeprecationHandling::class));
-
-            uses()->beforeEach(function () use ($interactsWithDeprecationHandling): void {
+        if ($this->has_argument('--with-deprecation-handling', $arguments)) {
+            $arguments = $this->pop_argument('--with-deprecation-handling', $arguments);
+            $interacts_with_deprecation_handling = fn(Test_Case $test_case): bool => function_exists('trait_uses_recursive') && trait_uses_recursive($test_case, Interacts_With_Deprecation_Handling::class);
+            uses()->before_each(function () use ($interacts_with_deprecation_handling): void {
                 /** @var TestCase $this */
-                if ($interactsWithDeprecationHandling($this)) {
+                if ($interacts_with_deprecation_handling($this)) {
                     /** @var TestCase&InteractsWithDeprecationHandling $this */
-                    $this->withDeprecationHandling();
+                    $this->with_deprecation_handling();
                 }
-            })->in(TestSuite::getInstance()->rootPath);
+            })->in(Test_Suite::get_instance()->root_path);
         }
-
-        if ($this->hasArgument('--without-deprecation-handling', $arguments)) {
-            $arguments = $this->popArgument('--without-deprecation-handling', $arguments);
-
-            $interactsWithDeprecationHandling = (fn (TestCase $testCase): bool => function_exists('trait_uses_recursive') && trait_uses_recursive($testCase, InteractsWithDeprecationHandling::class));
-
-            uses()->beforeEach(function () use ($interactsWithDeprecationHandling): void {
+        if ($this->has_argument('--without-deprecation-handling', $arguments)) {
+            $arguments = $this->pop_argument('--without-deprecation-handling', $arguments);
+            $interacts_with_deprecation_handling = fn(Test_Case $test_case): bool => function_exists('trait_uses_recursive') && trait_uses_recursive($test_case, Interacts_With_Deprecation_Handling::class);
+            uses()->before_each(function () use ($interacts_with_deprecation_handling): void {
                 /** @var TestCase $this */
-                if ($interactsWithDeprecationHandling($this)) {
+                if ($interacts_with_deprecation_handling($this)) {
                     /** @var TestCase&InteractsWithDeprecationHandling $this */
-                    $this->withoutDeprecationHandling();
+                    $this->without_deprecation_handling();
                 }
-            })->in(TestSuite::getInstance()->rootPath);
+            })->in(Test_Suite::get_instance()->root_path);
         }
-
         return $arguments;
     }
 }

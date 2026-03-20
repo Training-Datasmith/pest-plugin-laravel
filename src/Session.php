@@ -1,21 +1,18 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Pest\Laravel;
 
-use Illuminate\Foundation\Testing\TestCase;
-
+use Illuminate\Foundation\Testing\Test_Case;
 /**
  * Set the session to the given array.
  *
  * @return TestCase
  */
-function withSession(array $data)
+function with_session(array $data)
 {
-    return test()->withSession(...func_get_args());
+    return test()->with_session(...func_get_args());
 }
-
 /**
  * Set the session to the given array.
  *
@@ -25,23 +22,21 @@ function session(array $data)
 {
     return test()->session(...func_get_args());
 }
-
 /**
  * Start the session for the application.
  *
  * @return TestCase
  */
-function startSession()
+function start_session()
 {
-    return test()->startSession(...func_get_args());
+    return test()->start_session(...func_get_args());
 }
-
 /**
  * Flush all of the current session data.
  *
  * @return TestCase
  */
-function flushSession()
+function flush_session()
 {
-    return test()->flushSession(...func_get_args());
+    return test()->flush_session(...func_get_args());
 }

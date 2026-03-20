@@ -1,7 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Pest\Laravel;
 
 /**
@@ -10,22 +9,20 @@ namespace Pest\Laravel;
  * @param  callable|null  $callback
  * @return mixed
  */
-function freezeTime($callback = null)
+function freeze_time($callback = null)
 {
-    return test()->freezeTime($callback);
+    return test()->freeze_time($callback);
 }
-
 /**
  * Freeze time at the beginning of the current second.
  *
  * @param  callable|null  $callback
  * @return mixed
  */
-function freezeSecond($callback = null)
+function freeze_second($callback = null)
 {
-    return test()->freezeSecond($callback);
+    return test()->freeze_second($callback);
 }
-
 /**
  * Begin travelling to another time.
  *
@@ -36,7 +33,6 @@ function travel($value)
 {
     return test()->travel(...func_get_args());
 }
-
 /**
  * Travel to another time.
  *
@@ -44,17 +40,16 @@ function travel($value)
  * @param  callable|null  $callback
  * @return mixed
  */
-function travelTo($date, $callback = null)
+function travel_to($date, $callback = null)
 {
-    return test()->travelTo(...func_get_args());
+    return test()->travel_to(...func_get_args());
 }
-
 /**
  * Travel back to the current time.
  *
  * @return \DateTimeInterface
  */
-function travelBack()
+function travel_back()
 {
-    return test()->travelBack(...func_get_args());
+    return test()->travel_back(...func_get_args());
 }

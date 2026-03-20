@@ -1,47 +1,42 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Pest\Laravel;
 
-use Illuminate\Foundation\Testing\TestCase;
-
+use Illuminate\Foundation\Testing\Test_Case;
 /**
  * Restore exception handling.
  *
  * @return TestCase
  */
-function withExceptionHandling()
+function with_exception_handling()
 {
-    return test()->withExceptionHandling(...func_get_args());
+    return test()->with_exception_handling(...func_get_args());
 }
-
 /**
  * Only handle the given exceptions via the exception handler.
  *
  * @return TestCase
  */
-function handleExceptions(array $exceptions)
+function handle_exceptions(array $exceptions)
 {
-    return test()->handleExceptions(...func_get_args());
+    return test()->handle_exceptions(...func_get_args());
 }
-
 /**
  * Only handle validation exceptions via the exception handler.
  *
  * @return TestCase
  */
-function handleValidationExceptions()
+function handle_validation_exceptions()
 {
-    return test()->handleValidationExceptions(...func_get_args());
+    return test()->handle_validation_exceptions(...func_get_args());
 }
-
 /**
  * Disable exception handling for the test.
  *
  * @return TestCase
  */
-function withoutExceptionHandling(array $except = [])
+function without_exception_handling(array $except = [])
 {
-    return test()->withoutExceptionHandling(...func_get_args());
+    return test()->without_exception_handling(...func_get_args());
 }
